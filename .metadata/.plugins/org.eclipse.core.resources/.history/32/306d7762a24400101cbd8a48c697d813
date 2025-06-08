@@ -1,0 +1,5 @@
+package com.playlist.controller;
+
+public class AuthController {
+
+}

@@ -1,0 +1,84 @@
+package com.playlist.controller;
+
+import java.net.URI;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import jakarta.validation.Valid;
+
+
+@RestController
+@RequestMapping(value = "/lists")
+public class PlaylistController {
+	
+	@Autowired
+	PlaylistService playlistService;
+	
+	
+	@GetMapping(value = "/{listName}")
+    public ResponseEntity<PlaylistGetDTO> findByName(@PathVariable String listName) { 
+		Playlist playlist = playlistService.findByNome(listName);
+		PlaylistGetDTO playlistGetDTO = new PlaylistGetDTO(playlist);
+		return ResponseEntity.ok().body(playlistGetDTO);
+    } 
+	
+	@GetMapping
+    public ResponseEntity<List<PlaylistGetDTO>> findAll() { 
+		List<Playlist> list = playlistService.findAllPlaylist();
+		List<PlaylistGetDTO> listPlaylist = list.stream().map(p -> new PlaylistGetDTO(p)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listPlaylist);
+    } 
+	
+	@PostMapping
+	public ResponseEntity<PlaylistGetDTO> createPlaylist(@RequestBody @Valid PlaylistPostDTO playlistDTO) {
+		Playlist playlist = playlistService.fromPlaylist(playlistDTO);
+		playlistService.saveNewPlaylist(playlist);
+		PlaylistGetDTO playlistGetDTO = new PlaylistGetDTO(playlist);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{nome}")
+				.buildAndExpand(playlist.getNome())
+				.toUri(); 
+		return ResponseEntity.created(uri).body(playlistGetDTO);
+	}
+	
+	// url para add uma musica na playlist: playlists/idDaPlaylist/music/idDaMusic
+	@PostMapping(value = "/{nomePlaylist}/music/{nomeMusic}")
+	public ResponseEntity<Void> addMusicInPlaylist(@PathVariable String nomePlaylist, @PathVariable String nomeMusic) {
+	    playlistService.addMusicInPlaylist(nomePlaylist, nomeMusic);
+	    return ResponseEntity.ok().build();
+	}
+
+	
+	@PutMapping(value = "/{nome}")
+	public ResponseEntity<PlaylistGetDTO> putPlaylist(@PathVariable String nome, @RequestBody PlaylistPostDTO playlistPutDTO) {
+	    Playlist updatedPlaylist = playlistService.updatePlaylist(nome, playlistPutDTO);
+	    return ResponseEntity.ok().body(new PlaylistGetDTO(updatedPlaylist));
+	}
+
+	@DeleteMapping(value = "/{listName}")
+	public ResponseEntity<Playlist> deleteByName(@PathVariable String listName) {
+		playlistService.delete(listName);
+		return ResponseEntity.noContent().build();
+	}
+	
+	@DeleteMapping(value = "/{nomePlaylist}/music/{nomeMusica}")
+	public ResponseEntity<Void> deleteMusicaInPlaylist(@PathVariable String nomePlaylist, @PathVariable String nomeMusica) {
+	    playlistService.deleteMusicInPlaylist(nomePlaylist, nomeMusica);
+	    return ResponseEntity.noContent().build();
+	}
+
+}

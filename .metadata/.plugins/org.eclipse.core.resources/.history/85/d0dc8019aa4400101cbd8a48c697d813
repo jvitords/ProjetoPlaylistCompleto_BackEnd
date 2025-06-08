@@ -1,0 +1,113 @@
+package com.playlist.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.reactive.function.client.WebClientAutoConfiguration;
+import org.springframework.stereotype.Service;
+
+import com.projetoplaylist.entities.Music;
+import com.projetoplaylist.entities.Playlist;
+import com.projetoplaylist.entities.dto.musicdto.MusicPostDTO;
+import com.projetoplaylist.repository.MusicRepository;
+import com.projetoplaylist.service.exception.NotFoundException;
+import com.projetoplaylist.service.exception.PlaylistExistenteException;
+
+@Service
+public class MusicService {
+	
+	@Autowired
+	MusicRepository musicRepository;
+	@Autowired
+	PlaylistService playlistService;
+
+	public MusicService() {
+	}
+
+	public MusicService(MusicRepository musicRepository) {
+		this.musicRepository = musicRepository;
+	}
+	
+	public Music fromMusic(MusicPostDTO musicPostDTO) {
+		Music music = new Music();
+		music.setTitulo(musicPostDTO.getTitulo());
+		music.setArtista(musicPostDTO.getArtista());
+		music.setAlbum(musicPostDTO.getAlbum());
+		music.setAno(musicPostDTO.getAno());
+		music.setGenero(musicPostDTO.getGenero());
+		return music;
+	}
+	
+	public Music findById(Long id) {
+		return musicRepository.findById(id).orElseThrow(() -> new NotFoundException("Música não encontrada."));
+	}
+	
+	public List<Music> findAll() {
+		return musicRepository.findAll();
+	}
+	
+	public List<Music> findByName(String name) {
+	    return musicRepository.findByTituloContainingIgnoreCase(name);
+	}
+
+
+	public void saveNewMusic(Music music) {
+	    if (musicRepository.existsByTituloIgnoreCase(music.getTitulo())) {
+	        throw new IllegalArgumentException("Já existe uma música com esse nome.");
+	    }
+	    musicRepository.save(music);
+	}
+	
+	public Music updateMusic(String titulo, MusicPostDTO dto) {
+	    Music music = musicRepository.findByTitulo(titulo)
+	        .orElseThrow(() -> new NotFoundException("Música com título " + titulo + " não foi encontrada!"));
+
+	    // Atualiza título, se vier preenchido
+	    if (dto.getTitulo() != null && !dto.getTitulo().isBlank()) {
+	        String novoTitulo = dto.getTitulo().trim();
+	        if (!music.getTitulo().equalsIgnoreCase(novoTitulo) &&
+	            musicRepository.existsByTituloIgnoreCase(novoTitulo)) {
+	            throw new PlaylistExistenteException("Já existe uma música com esse título.");
+	        }
+	        music.setTitulo(novoTitulo);
+	    }
+
+	    // Atualiza artista, se vier preenchido
+	    if (dto.getArtista() != null && !dto.getArtista().isBlank()) {
+	        music.setArtista(dto.getArtista().trim());
+	    }
+
+	    // Atualiza álbum, se vier preenchido
+	    if (dto.getAlbum() != null && !dto.getAlbum().isBlank()) {
+	        music.setAlbum(dto.getAlbum().trim());
+	    }
+
+	    // Atualiza gênero, se vier preenchido
+	    if (dto.getGenero() != null && !dto.getGenero().isBlank()) {
+	        music.setGenero(dto.getGenero().trim());
+	    }
+
+	    // Atualiza ano, se vier diferente de null
+	    if (dto.getAno() != null) {
+	        music.setAno(dto.getAno());
+	    }
+
+	    return musicRepository.save(music);
+	}
+
+	public void deleteById(Long id) {
+		Music music = musicRepository.findById(id)
+		        .orElseThrow(() -> new NotFoundException("Música não encontrada."));
+			
+	    // Irá remover todas as playlist que ela está relacionada, para não dar erro no banco
+		if (music.getPlaylist() != null) {
+			
+            for (Playlist playlist : music.getPlaylist()) {
+                // Chama o método deleteMusicInPlaylist para remover a música de cada playlist
+                playlistService.deleteMusicInPlaylist(playlist.getNome(), music.getTitulo());
+            }
+        }
+	    musicRepository.delete(music);
+	}
+
+}
