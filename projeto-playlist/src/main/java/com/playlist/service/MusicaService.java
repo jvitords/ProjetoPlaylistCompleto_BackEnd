@@ -58,7 +58,7 @@ public class MusicaService {
 	    musicaRepository.save(musica);
 	}
 	
-	public Musica updatemusica(String titulo, MusicaPostDTO dto) {
+	public Musica updateMusica(String titulo, MusicaPostDTO dto) {
 	    Musica musica = musicaRepository.findByTitulo(titulo)
 	        .orElseThrow(() -> new NotFoundException("Música com título " + titulo + " não foi encontrada!"));
 

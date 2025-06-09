@@ -58,7 +58,7 @@ public class MusicaController {
 
     @PutMapping("/{titulo}")
     public ResponseEntity<MusicaGetDTO> updateMusic(@PathVariable String titulo, @RequestBody MusicaPostDTO musicDto) {
-        Musica updatedMusic = musicService.updatemusica(titulo, musicDto);
+        Musica updatedMusic = musicService.updateMusica(titulo, musicDto);
         //MusicPostDTO responseDTO = new MusicPostDTO(updatedMusic);
         return ResponseEntity.ok().body(new MusicaGetDTO(updatedMusic));
     }
