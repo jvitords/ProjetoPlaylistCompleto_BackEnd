@@ -49,6 +49,6 @@ As APIs permitem criar, buscar, atualizar e deletar listas identificadas por nom
 
 Para rodar os testes:
 
-```bash
-./mvnw test
-```
+git clone https://github.com/jvitords/ProvaPlaylistBackEnd.git
+cd ProvaPlaylistBackEnd
+./mvnw spring-boot:run
