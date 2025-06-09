@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun shouldDeleteMusic()" project="projeto-playlist" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.playlist.controller.MusicaControllerTest" time="0.127" displayname="MusicaControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.playlist.controller.MusicaControllerTest]">
-    <testcase name="shouldDeleteMusic" classname="com.playlist.controller.MusicaControllerTest" time="0.127" displayname="shouldDeleteMusic()" uniqueid="[engine:junit-jupiter]/[class:com.playlist.controller.MusicaControllerTest]/[method:shouldDeleteMusic()]"/>
-  </testsuite>
-</testrun>

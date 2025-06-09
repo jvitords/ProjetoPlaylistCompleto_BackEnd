@@ -3,4 +3,7 @@
     <fullyQualifiedTypeName name="com.playlist.entities.Playlist"/>
     <fullyQualifiedTypeName name="com.playlist.entities.Musica"/>
     <fullyQualifiedTypeName name="com.playlist.service.exception.NotFoundException"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.playlist.repository.UserRepository"/>
+    <fullyQualifiedTypeName name="com.playlist.entities.dto.musicaDTO.MusicaGetDTO"/>
 </qualifiedTypeNameHistroy>
