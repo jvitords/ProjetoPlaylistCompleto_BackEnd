@@ -4,11 +4,14 @@ import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.playlist.entities.Musica;
 import com.playlist.entities.Playlist;
+import com.playlist.entities.User;
 import com.playlist.repository.MusicaRepository;
 import com.playlist.repository.PlaylistRepository;
+import com.playlist.repository.UserRepository;
 
 @org.springframework.context.annotation.Configuration
 public class TestConfigutation implements CommandLineRunner{
@@ -17,6 +20,10 @@ public class TestConfigutation implements CommandLineRunner{
 	private PlaylistRepository playlistRepository;
 	@Autowired
 	private MusicaRepository musicaRepository;
+	@Autowired 
+	UserRepository userRepository;
+	@Autowired
+    private PasswordEncoder encoder;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -31,6 +38,9 @@ public class TestConfigutation implements CommandLineRunner{
 		Musica m3 = new Musica(null, "Freio da Blazer", "MC Cabelinho", "Trap 2022 album", 2022, "Trap");
 		Musica m4 = new Musica(null, "teste", "MC Cabelinho", "Trap 2022 album", 2022, "Trap");
 		musicaRepository.saveAll(Arrays.asList(m1,m2,m3, m4));
+		
+		User user1 = new User(null, "joao@gmail.com", encoder.encode("123"));
+		userRepository.save(user1);
 		
 	}
 
