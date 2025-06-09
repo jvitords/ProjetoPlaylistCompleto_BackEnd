@@ -37,7 +37,7 @@ public class PlaylistService {
 		return playlist;
 	}
 	
-	public List<Playlist> findAllPlaylist() { // esse mostra todas as informações
+	public List<Playlist> findAllPlaylist() { 
 		
 		return playlistRepository.findAll();
 	}
@@ -65,7 +65,7 @@ public class PlaylistService {
 	}
 
 	public Playlist updatePlaylist(String nome, PlaylistPostDTO playlistDto) {
-	    Playlist playlist = findByNome(nome); // já lança NotFoundException se não achar
+	    Playlist playlist = findByNome(nome); 
 
 	    boolean nomeBlank = playlistDto.getNome() == null || playlistDto.getNome().isBlank();
 	    boolean descricaoBlank = playlistDto.getDescricao() == null || playlistDto.getDescricao().isBlank();

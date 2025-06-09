@@ -1169,3 +1169,85 @@
 2025-06-08 22:24:59,050 [Worker-65: Launching Rerun MusicaControllerTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2025-06-08 22:24:59,051 [Worker-65: Launching Rerun MusicaControllerTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2025-06-08 22:24:59,054 [Worker-65: Launching Rerun MusicaControllerTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:25:17,012 [Worker-71: Launching Rerun MusicaControllerTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:25:17,013 [Worker-71: Launching Rerun MusicaControllerTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:25:17,018 [Worker-71: Launching Rerun MusicaControllerTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:34:00,185 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:34:00,187 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:34:00,192 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:34:34,306 [Worker-74: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:34:34,308 [Worker-74: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:34:34,312 [Worker-74: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:35:28,532 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:35:28,534 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:35:28,538 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:38:56,663 [Worker-76: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2025-06-08 22:38:57,499 [Worker-76: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.playlist:projeto-playlist:0.0.1-SNAPSHOT @ C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\pom.xml.
+2025-06-08 22:38:59,011 [Worker-76: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /projeto-playlist/src/main/java
+2025-06-08 22:38:59,017 [Worker-76: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /projeto-playlist/src/main/resources
+2025-06-08 22:38:59,021 [Worker-76: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /projeto-playlist/src/main/resources
+2025-06-08 22:38:59,024 [Worker-76: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /projeto-playlist/src/test/java
+2025-06-08 22:38:59,026 [Worker-76: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /projeto-playlist/src/test/resources
+2025-06-08 22:38:59,374 [Worker-76: Updating Maven Project] INFO  o.e.m.jdt.internal.UnitTestSupport - Reset launch configuration name: MusicaServiceTest
+2025-06-08 22:38:59,374 [Worker-76: Updating Maven Project] INFO  o.e.m.jdt.internal.UnitTestSupport - Updating MusicaServiceTest from maven configuration
+2025-06-08 22:38:59,667 [Worker-76: Updating Maven Project] INFO  o.e.m.jdt.internal.UnitTestSupport - Reset launch configuration name: MusicaControllerTest
+2025-06-08 22:38:59,667 [Worker-76: Updating Maven Project] INFO  o.e.m.jdt.internal.UnitTestSupport - Updating MusicaControllerTest from maven configuration
+2025-06-08 22:38:59,905 [Worker-76: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0,00 sec, refresh facades takes 2,00 sec, update config takes 1,00 sec 
+2025-06-08 22:39:00,791 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-08 22:39:00,810 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:39:00,818 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:39:42,517 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:39:42,518 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:39:42,521 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:40:03,277 [main] INFO  o.e.m.jdt.internal.UnitTestSupport - Updating PlaylistServiceTest from maven configuration
+2025-06-08 22:42:13,954 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:42:13,956 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:42:13,960 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:43:17,266 [Worker-77: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:43:17,267 [Worker-77: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:43:17,270 [Worker-77: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:43:28,052 [main] INFO  o.e.m.jdt.internal.UnitTestSupport - Updating PlaylistControllerTest from maven configuration
+2025-06-08 22:45:24,006 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:45:24,008 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:45:24,013 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:45:53,240 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:45:53,242 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:45:53,245 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:46:11,552 [main] INFO  o.e.m.jdt.internal.UnitTestSupport - Updating JwtServiceTest from maven configuration
+2025-06-08 22:46:44,812 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:46:44,813 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:46:44,817 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:47:57,935 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:47:57,936 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:47:57,940 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:48:03,121 [main] INFO  o.e.m.jdt.internal.UnitTestSupport - Updating AuthControllerTest from maven configuration
+2025-06-08 22:48:51,508 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:48:51,510 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:48:51,513 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:49:19,503 [Worker-76: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:49:19,504 [Worker-76: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:49:19,507 [Worker-76: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:49:41,579 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:49:41,580 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:49:41,582 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:50:18,484 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-08 22:50:18,493 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:50:18,497 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:50:44,519 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-08 22:50:44,523 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:50:44,527 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:51:05,755 [Worker-77: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-08 22:51:05,762 [Worker-77: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:51:05,767 [Worker-77: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:51:49,716 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-08 22:51:49,723 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:51:49,726 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:55:57,176 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-08 22:55:57,183 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:55:57,186 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:57:17,213 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-08 22:57:17,220 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:57:17,224 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources
+2025-06-08 22:57:44,839 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-06-08 22:57:44,844 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-06-08 22:57:44,847 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Estudos\ProvaPlaylistBackEnd\projeto-playlist\src\test\resources

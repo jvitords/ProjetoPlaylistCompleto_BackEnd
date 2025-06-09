@@ -23,7 +23,7 @@ public class MusicaController {
     @Autowired
     private MusicaService musicService;
 
-    // url: /music?name=nomeDesejado
+    // url: /musica?name=nomeDesejado, caso não seja passado nada retorna tudo
     @GetMapping
     public ResponseEntity<List<MusicaGetDTO>> findAllOrByName(@RequestParam(required = false) String name) {
         if (name == null || name.isBlank()) {
@@ -37,7 +37,7 @@ public class MusicaController {
         }
     }
 
-
+    // get somente pelo id
     @GetMapping("/{id}")
     public ResponseEntity<MusicaGetDTO> findById(@PathVariable Long id) {
         Musica music = musicService.findById(id);
@@ -63,7 +63,7 @@ public class MusicaController {
         return ResponseEntity.ok().body(new MusicaGetDTO(updatedMusic));
     }
 
-
+    // delete usando id
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteMusic(@PathVariable Long id) {
         musicService.deleteById(id);

@@ -10,7 +10,7 @@ import com.playlist.entities.Playlist;
 
 @Repository
 public interface PlaylistRepository extends JpaRepository<Playlist, Long>{
-	List<Playlist> findByNomeContainingIgnoreCase(String palavra); // encontra playlist que conter a string do argumento passado
+	List<Playlist> findByNomeContainingIgnoreCase(String palavra); 
 	void deleteByNome(String name);
 	Optional<Playlist> findByNome(String name);
 	Boolean existsByNomeIgnoreCase(String playlist);

@@ -14,7 +14,6 @@ import io.jsonwebtoken.security.Keys;
 @Component
 public class JwtService {
 
-    //private final String secretKey = "segredo-super-seguro";
 	@Value("${jwt.secret}")
 	private String secretKey;
 	

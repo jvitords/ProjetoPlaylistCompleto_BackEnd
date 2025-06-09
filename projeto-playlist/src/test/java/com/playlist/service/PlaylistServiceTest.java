@@ -1,0 +1,79 @@
+package com.playlist.service;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+import java.util.*;
+
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.*;
+
+import com.playlist.entities.Playlist;
+import com.playlist.repository.MusicaRepository;
+import com.playlist.repository.PlaylistRepository;
+import com.playlist.service.exception.NotFoundException;
+import com.playlist.service.exception.PlaylistExistenteException;
+
+public class PlaylistServiceTest {
+
+    @Mock
+    private PlaylistRepository playlistRepository;
+
+    @Mock
+    private MusicaRepository musicRepository;
+
+    @InjectMocks
+    private PlaylistService playlistService;
+
+    @BeforeEach
+    void setup() {
+        MockitoAnnotations.openMocks(this);
+    }
+    
+    @Test
+    void findById_shouldReturnPlaylist_whenFound() {
+        Playlist playlist = new Playlist();
+        playlist.setNome("Minha Playlist");
+
+        when(playlistRepository.findById(1L)).thenReturn(Optional.of(playlist));
+
+        Playlist result = playlistService.findById(1L);
+
+        assertNotNull(result);
+        assertEquals("Minha Playlist", result.getNome());
+    }
+
+    @Test
+    void findById_shouldThrowException_whenNotFound() {
+        when(playlistRepository.findById(1L)).thenReturn(Optional.empty());
+
+        assertThrows(NotFoundException.class, () -> playlistService.findById(1L));
+    }
+
+    @Test
+    void saveNewPlaylist_shouldSave_whenNameDoesNotExist() {
+        Playlist playlist = new Playlist();
+        playlist.setNome("Nova Playlist");
+
+        when(playlistRepository.existsByNomeIgnoreCase("Nova Playlist")).thenReturn(false);
+
+        playlistService.saveNewPlaylist(playlist);
+
+        verify(playlistRepository, times(1)).save(playlist);
+    }
+
+    @Test
+    void saveNewPlaylist_shouldThrow_whenNameExists() {
+        Playlist playlist = new Playlist();
+        playlist.setNome("Repetida");
+
+        when(playlistRepository.existsByNomeIgnoreCase("Repetida")).thenReturn(true);
+
+        assertThrows(PlaylistExistenteException.class, () -> playlistService.saveNewPlaylist(playlist));
+
+        verify(playlistRepository, never()).save(any());
+    }
+
+}

@@ -40,7 +40,7 @@ public class MusicaServiceTest {
     }
 
     @Test
-    void findByNome_shouldReturnList_whenFound() { // teste para encontrar a musica pelo nome
+    void findByNome_shouldReturnList_whenFound() { 
         Musica music1 = new Musica();
         music1.setTitulo("Música teste 1");
 
@@ -60,7 +60,7 @@ public class MusicaServiceTest {
     }
     
     @Test
-    void saveNewMusica_shouldSave_whenTituloDoesNotExist() { // teste para salvar nova musica
+    void saveNewMusica_shouldSave_whenTituloDoesNotExist() {
         Musica music = new Musica();
         music.setTitulo("Titulo Musica");
 
@@ -72,7 +72,7 @@ public class MusicaServiceTest {
     }
     
     @Test
-    void saveNewMusica_shouldThrowException_whenTituloExists() { // teste para verificar se lança exception quando já tem uma música com o nome escolhido
+    void saveNewMusica_shouldThrowException_whenTituloExists() { 
         Musica music = new Musica();
         music.setTitulo("Titulo existente");
 

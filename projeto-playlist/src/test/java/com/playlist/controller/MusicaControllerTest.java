@@ -83,11 +83,11 @@ public class MusicaControllerTest  {
         when(musicService.fromMusica(any())).thenReturn(music);
 
         mockMvc.perform(post("/musica")
-                .with(csrf()) // só se você usa Spring Security (provavelmente sim)
+                .with(csrf()) 
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(dto)))
             .andExpect(status().isCreated())
-            .andExpect(jsonPath("$.titulo").value("Musica teste")); // ou "New Music", dependendo do retorno
+            .andExpect(jsonPath("$.titulo").value("Musica teste")); 
     }
 
 

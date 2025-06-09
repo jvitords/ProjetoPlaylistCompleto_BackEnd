@@ -14,7 +14,7 @@ import com.playlist.service.exception.PlaylistExistenteException;
 @RestControllerAdvice
 public class ApiExceptionHandler {
 	
-	@ExceptionHandler(NotFoundException.class) // exception lançada caso não encontre o objeto
+	@ExceptionHandler(NotFoundException.class) 
 	public ResponseEntity exceptionNotFound() {
 		return ResponseEntity.notFound().build();
 	}

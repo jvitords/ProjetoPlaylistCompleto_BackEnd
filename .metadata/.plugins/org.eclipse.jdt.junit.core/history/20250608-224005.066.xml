@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="PlaylistServiceTest" project="projeto-playlist" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="com.playlist.service.PlaylistServiceTest" time="1.417" displayname="PlaylistServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.playlist.service.PlaylistServiceTest]">
+    <testcase name="findById_shouldThrowException_whenNotFound" classname="com.playlist.service.PlaylistServiceTest" time="1.387" displayname="findById_shouldThrowException_whenNotFound()" uniqueid="[engine:junit-jupiter]/[class:com.playlist.service.PlaylistServiceTest]/[method:findById_shouldThrowException_whenNotFound()]"/>
+    <testcase name="saveNewPlaylist_shouldSave_whenNameDoesNotExist" classname="com.playlist.service.PlaylistServiceTest" time="0.015" displayname="saveNewPlaylist_shouldSave_whenNameDoesNotExist()" uniqueid="[engine:junit-jupiter]/[class:com.playlist.service.PlaylistServiceTest]/[method:saveNewPlaylist_shouldSave_whenNameDoesNotExist()]"/>
+    <testcase name="saveNewPlaylist_shouldThrow_whenNameExists" classname="com.playlist.service.PlaylistServiceTest" time="0.006" displayname="saveNewPlaylist_shouldThrow_whenNameExists()" uniqueid="[engine:junit-jupiter]/[class:com.playlist.service.PlaylistServiceTest]/[method:saveNewPlaylist_shouldThrow_whenNameExists()]"/>
+    <testcase name="findById_shouldReturnPlaylist_whenFound" classname="com.playlist.service.PlaylistServiceTest" time="0.006" displayname="findById_shouldReturnPlaylist_whenFound()" uniqueid="[engine:junit-jupiter]/[class:com.playlist.service.PlaylistServiceTest]/[method:findById_shouldReturnPlaylist_whenFound()]"/>
+  </testsuite>
+</testrun>

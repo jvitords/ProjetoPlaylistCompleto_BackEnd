@@ -58,7 +58,6 @@ public class PlaylistController {
 		return ResponseEntity.created(uri).body(playlistGetDTO);
 	}
 	
-	// url para add uma musica na playlist: playlists/idDaPlaylist/music/idDaMusic
 	@PostMapping(value = "/{nomePlaylist}/music/{nomeMusic}")
 	public ResponseEntity<Void> addMusicInPlaylist(@PathVariable String nomePlaylist, @PathVariable String nomeMusic) {
 	    playlistService.addMusicInPlaylist(nomePlaylist, nomeMusic);
