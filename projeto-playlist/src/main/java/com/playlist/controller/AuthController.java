@@ -65,6 +65,6 @@ public class AuthController {
         cookie.setPath("/");
         cookie.setMaxAge(0); // expira imediatamente
         response.addCookie(cookie);
-        return ResponseEntity.ok("Logout bem-sucedido");
+        return ResponseEntity.noContent().build();
     }
 }

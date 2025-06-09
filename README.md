@@ -55,6 +55,6 @@ git clone https://github.com/jvitords/ProvaPlaylistBackEnd.git
 
 cd ProvaPlaylistBackEnd
 
-# Execute a aplicação com Maven Wrapper
+# Execute a aplicação
 
 ./mvnw spring-boot:run
