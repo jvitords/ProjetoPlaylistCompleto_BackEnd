@@ -47,8 +47,14 @@ As APIs permitem criar, buscar, atualizar e deletar listas identificadas por nom
   - `JUnit 5`
   - `Mockito`
 
-Para rodar os testes:
+# Clone o repositório
 
 git clone https://github.com/jvitords/ProvaPlaylistBackEnd.git
+
+# Acesse a pasta do projeto
+
 cd ProvaPlaylistBackEnd
+
+# Execute a aplicação com Maven Wrapper
+
 ./mvnw spring-boot:run
