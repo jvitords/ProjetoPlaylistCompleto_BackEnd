@@ -38,8 +38,8 @@ public class MusicaService {
 		return musica;
 	}
 	
-	public Musica findById(Long id) {
-		return musicaRepository.findById(id).orElseThrow(() -> new NotFoundException("Música não encontrada."));
+	public Musica findByTitulo(String titulo) {
+		return musicaRepository.findByTitulo(titulo).orElseThrow(() -> new NotFoundException("Música não encontrada."));
 	}
 	
 	public List<Musica> findAll() {
@@ -95,8 +95,8 @@ public class MusicaService {
 	    return musicaRepository.save(musica);
 	}
 
-	public void deleteById(Long id) {
-		Musica musica = musicaRepository.findById(id)
+	public void deleteByTitulo(String titulo) {
+		Musica musica = musicaRepository.findByTitulo(titulo)
 		        .orElseThrow(() -> new NotFoundException("Música não encontrada."));
 			
 	    // Irá remover todas as playlist que ela está relacionada, para não dar erro no banco

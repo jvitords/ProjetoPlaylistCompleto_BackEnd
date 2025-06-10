@@ -13,7 +13,7 @@ public class MusicaGetDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private Long id;
+	//private Long id;
 	private String titulo;
 	private String artista;
 	private String album;
@@ -23,7 +23,7 @@ public class MusicaGetDTO implements Serializable {
 	public MusicaGetDTO() {}
 
 	public MusicaGetDTO(Musica musicDTO) {
-		this.id = musicDTO.getId();
+		//this.id = musicDTO.getId();
 		this.titulo = musicDTO.getTitulo();
 		this.artista = musicDTO.getArtista();
 		this.album = musicDTO.getAlbum();

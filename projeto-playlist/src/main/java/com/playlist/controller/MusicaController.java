@@ -37,10 +37,9 @@ public class MusicaController {
         }
     }
 
-    // get somente pelo id
-    @GetMapping("/{id}")
-    public ResponseEntity<MusicaGetDTO> findById(@PathVariable Long id) {
-        Musica music = musicService.findById(id);
+    @GetMapping("/{titulo}")
+    public ResponseEntity<MusicaGetDTO> findById(@PathVariable String titulo) {
+        Musica music = musicService.findByTitulo(titulo);
         MusicaGetDTO dto = new MusicaGetDTO(music);
         return ResponseEntity.ok().body(dto);
     }
@@ -64,9 +63,9 @@ public class MusicaController {
     }
 
     // delete usando id
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteMusic(@PathVariable Long id) {
-        musicService.deleteById(id);
+    @DeleteMapping("/{titulo}")
+    public ResponseEntity<Void> deleteMusic(@PathVariable String titulo) {
+        musicService.deleteByTitulo(titulo);
         return ResponseEntity.noContent().build();
     }
 }

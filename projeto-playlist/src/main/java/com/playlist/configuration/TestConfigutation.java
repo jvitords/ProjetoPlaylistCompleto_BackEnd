@@ -33,13 +33,13 @@ public class TestConfigutation implements CommandLineRunner{
 		Playlist p3 = new Playlist(null, "Melhores do Pixote", "Playlist de Pagode");
 		playlistRepository.saveAll(Arrays.asList(p1,p2,p3));
 		
-		Musica m1 = new Musica(null, "Flor e o Beija-Flor", "Jorge e Matheus", "Album 2012", 2012, "Sertanejo");
-		Musica m2 = new Musica(null, "Saudade arregaça", "Pixote", "Pagode do Pixote Album", 2020, "Pagode");
+		Musica m1 = new Musica(null, "Logo Eu", "Jorge e Matheus", "Album 2012", 2012, "Sertanejo");
+		Musica m2 = new Musica(null, "Brilho no olhar", "Pixote", "Pagode do Pixote Album", 2020, "Pagode");
 		Musica m3 = new Musica(null, "Freio da Blazer", "MC Cabelinho", "Trap 2022 album", 2022, "Trap");
-		Musica m4 = new Musica(null, "teste", "MC Cabelinho", "Trap 2022 album", 2022, "Trap");
+		Musica m4 = new Musica(null, "Moves Like Jagger", "Maroon 5", "Pop Mundial", 2022, "Pop");
 		musicaRepository.saveAll(Arrays.asList(m1,m2,m3, m4));
 		
-		User user1 = new User(null, "joao@gmail.com", encoder.encode("123"));
+		User user1 = new User(null, "user@gmail.com", encoder.encode("user123"));
 		userRepository.save(user1);
 		
 	}

@@ -18,6 +18,8 @@ Este é o backend da aplicação desenvolvido com **Spring Boot** e **Java 17**,
 
 ## 🗂️ Funcionalidades da API
 
+**Estes são os endpoints principais que foram pedidos, mas existem outros endpoints adicionais.**
+
 As APIs permitem criar, buscar, atualizar e deletar listas identificadas por nome.
 
 ### 📌 Endpoints:
@@ -47,14 +49,21 @@ As APIs permitem criar, buscar, atualizar e deletar listas identificadas por nom
   - `JUnit 5`
   - `Mockito`
 
-# Clone o repositório
+# 1. Clone o repositório
 
 git clone https://github.com/jvitords/ProvaPlaylistBackEnd.git
 
-# Acesse a pasta do projeto
+# 2. Acesse a pasta do projeto
 
 cd ProvaPlaylistBackEnd
 
-# Execute a aplicação
+# 3. Execute a aplicação
 
 ./mvnw spring-boot:run
+
+# 4. Login e Senha
+
+Para acessar a aplicação use o login e senha já configurados:
+
+- Username: user@gmail.com
+- Password: user123
