@@ -1,6 +1,7 @@
 package com.playlist.configuration;
 
 import java.util.Arrays;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -8,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.playlist.entities.Musica;
 import com.playlist.entities.Playlist;
+import com.playlist.entities.Roles;
 import com.playlist.entities.User;
 import com.playlist.repository.MusicaRepository;
 import com.playlist.repository.PlaylistRepository;
@@ -39,7 +41,7 @@ public class TestConfigutation implements CommandLineRunner{
 		Musica m4 = new Musica(null, "Moves Like Jagger", "Maroon 5", "Pop Mundial", 2022, "Pop");
 		musicaRepository.saveAll(Arrays.asList(m1,m2,m3, m4));
 		
-		User user1 = new User(null, "user@gmail.com", encoder.encode("user123"));
+		User user1 = new User(null, "user@gmail.com", encoder.encode("user123"), Set.of(Roles.ADMIN));
 		userRepository.save(user1);
 		
 	}

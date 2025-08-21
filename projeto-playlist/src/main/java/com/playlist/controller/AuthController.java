@@ -1,16 +1,19 @@
 package com.playlist.controller;
 
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.playlist.entities.Roles;
 import com.playlist.entities.User;
 import com.playlist.repository.UserRepository;
 import com.playlist.service.JwtService;
@@ -30,10 +33,12 @@ public class AuthController {
 
     @Autowired
     private JwtService jwtService;
-
+    
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody User user) {
         user.setPassword(encoder.encode(user.getPassword()));
+        user.setRoles(Set.of(Roles.USER));
         userRepository.save(user);
         return ResponseEntity.ok("Usuário registrado com sucesso");
     }

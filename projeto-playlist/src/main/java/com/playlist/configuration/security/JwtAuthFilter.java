@@ -3,10 +3,14 @@ package com.playlist.configuration.security;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -44,9 +48,16 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 if (jwtService.isTokenValid(jwt)) {
                     String username = jwtService.extractUsername(jwt);
                     UserDetails user = userRepository.findByUsername(username)
-                        .map(u -> new org.springframework.security.core.userdetails.User(
-                            u.getUsername(), u.getPassword(), new ArrayList<>()))
-                        .orElse(null);
+                    	    .map(u -> {
+                    	        List<GrantedAuthority> authorities = u.getRoles().stream()
+                    	            .map(role -> new SimpleGrantedAuthority("ROLE_" + role)) // adiciona ROLE_ antes
+                    	            .collect(Collectors.toList());
+
+                    	        return new org.springframework.security.core.userdetails.User(
+                    	            u.getUsername(), u.getPassword(), authorities
+                    	        );
+                    	    }).orElse(null);
+
 
                     if (user != null) {
                         UsernamePasswordAuthenticationToken authToken =

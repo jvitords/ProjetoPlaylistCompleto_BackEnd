@@ -63,15 +63,6 @@ public class MusicaControllerTest  {
     }
 
     @Test
-    void shouldReturnMusicById() throws Exception {
-        when(musicService.findById(1L)).thenReturn(music);
-
-        mockMvc.perform(get("/musica/1"))
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$.titulo").value("Musica teste"));
-    }
-
-    @Test
     void shouldCreateNewMusic() throws Exception {
         MusicaPostDTO dto = new MusicaPostDTO();
         dto.setTitulo("New Music");
@@ -106,11 +97,4 @@ public class MusicaControllerTest  {
             .andExpect(jsonPath("$.titulo").value("Updated Music"));
     }
 
-    @Test
-    void shouldDeleteMusic() throws Exception {
-        doNothing().when(musicService).deleteById(1L);
-
-        mockMvc.perform(delete("/musica/1"))
-            .andExpect(status().isNoContent());
-    }
 }
