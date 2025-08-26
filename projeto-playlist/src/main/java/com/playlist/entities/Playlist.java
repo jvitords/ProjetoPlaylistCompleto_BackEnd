@@ -45,13 +45,16 @@ public class Playlist implements Serializable{
 	private Set<Musica> listMusicas = new HashSet<>();
 	
 	@ManyToOne
-	@JoinColumn(name = "id_user")
+	@JoinColumn(name = "id_user", nullable = false)
 	private User user;
 	
-	public Playlist(Long id, String nome, String descricao) {
+	public Playlist(Long id, String nome, String descricao, User user) {
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
+		this.user = user;
 	}	
+	
+	
 }
 

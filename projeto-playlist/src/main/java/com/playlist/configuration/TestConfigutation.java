@@ -30,11 +30,6 @@ public class TestConfigutation implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Playlist p1 = new Playlist(null, "Funk RJ", "Playlist de Funk");
-		Playlist p2 = new Playlist(null, "Jorge e Matheus", "Playlist de Sertanejo");
-		Playlist p3 = new Playlist(null, "Melhores do Pixote", "Playlist de Pagode");
-		playlistRepository.saveAll(Arrays.asList(p1,p2,p3));
-		
 		Musica m1 = new Musica(null, "Logo Eu", "Jorge e Matheus", "Album 2012", 2012, "Sertanejo");
 		Musica m2 = new Musica(null, "Brilho no olhar", "Pixote", "Pagode do Pixote Album", 2020, "Pagode");
 		Musica m3 = new Musica(null, "Freio da Blazer", "MC Cabelinho", "Trap 2022 album", 2022, "Trap");
@@ -46,6 +41,10 @@ public class TestConfigutation implements CommandLineRunner{
 		userRepository.save(user1);
 		userRepository.save(user2);
 		
+		Playlist p1 = new Playlist(null, "Funk RJ", "Playlist de Funk", user1);
+		Playlist p2 = new Playlist(null, "Jorge e Matheus", "Playlist de Sertanejo", user1);
+		Playlist p3 = new Playlist(null, "Melhores do Pixote", "Playlist de Pagode", user1);
+		playlistRepository.saveAll(Arrays.asList(p1,p2,p3));
 	}
 
 }

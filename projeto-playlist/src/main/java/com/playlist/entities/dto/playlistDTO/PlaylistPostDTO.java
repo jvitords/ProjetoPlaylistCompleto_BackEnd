@@ -14,9 +14,9 @@ public class PlaylistPostDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	@NotBlank(message = "O nome da música está inválido")
+	@NotBlank(message = "O nome da playlist está inválido")
 	private String nome;
-	@NotBlank(message = "A descrição da música está inválido")
+	@NotBlank(message = "A descrição da playlist está inválido")
 	private String descricao;
 
 	public PlaylistPostDTO() {

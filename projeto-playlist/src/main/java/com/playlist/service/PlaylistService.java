@@ -3,13 +3,17 @@ package com.playlist.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.playlist.entities.Musica;
 import com.playlist.entities.Playlist;
+import com.playlist.entities.User;
 import com.playlist.entities.dto.playlistDTO.PlaylistPostDTO;
 import com.playlist.repository.MusicaRepository;
 import com.playlist.repository.PlaylistRepository;
+import com.playlist.repository.UserRepository;
 import com.playlist.service.exception.NotFoundException;
 import com.playlist.service.exception.PlaylistExistenteException;
 
@@ -18,6 +22,8 @@ public class PlaylistService {
 	
 	@Autowired
 	PlaylistRepository playlistRepository;
+	@Autowired
+	UserRepository userRepository;
 	@Autowired
 	MusicaRepository musicRepository;
 	
@@ -34,12 +40,17 @@ public class PlaylistService {
 		Playlist playlist = new Playlist();
 		playlist.setNome(playlistDTO.getNome());
 		playlist.setDescricao(playlistDTO.getDescricao());
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String username = authentication.getName();
+		User user = userRepository.findByUsername(username).orElseThrow(() -> new NotFoundException("Usuário não encontrado!"));
+		playlist.setUser(user);
 		return playlist;
 	}
 	
-	public List<Playlist> findAllPlaylist() { 
-		
-		return playlistRepository.findAll();
+	public List<Playlist> findAllPlaylist(String username) { 
+		User user = userRepository.findByUsername(username).orElseThrow(() -> new NotFoundException("Usuário não encontrado!"));
+		return playlistRepository.findByUser(user);
 	}
 	
 	public Playlist findById(Long id) {

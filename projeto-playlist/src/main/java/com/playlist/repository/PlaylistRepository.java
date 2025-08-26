@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.playlist.entities.Playlist;
+import com.playlist.entities.User;
 
 @Repository
 public interface PlaylistRepository extends JpaRepository<Playlist, Long>{
@@ -14,4 +15,5 @@ public interface PlaylistRepository extends JpaRepository<Playlist, Long>{
 	void deleteByNome(String name);
 	Optional<Playlist> findByNome(String name);
 	Boolean existsByNomeIgnoreCase(String playlist);
+	List<Playlist> findByUser(User user);
 }
