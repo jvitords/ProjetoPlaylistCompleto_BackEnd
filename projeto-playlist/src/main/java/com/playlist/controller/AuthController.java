@@ -1,6 +1,7 @@
 package com.playlist.controller;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,13 +35,19 @@ public class AuthController {
     @Autowired
     private JwtService jwtService;
     
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')") // só admin pode acessar essa opção
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody User user) {
-        user.setPassword(encoder.encode(user.getPassword()));
-        user.setRoles(Set.of(Roles.USER));
-        userRepository.save(user);
-        return ResponseEntity.ok("Usuário registrado com sucesso");
+    	Optional<User> userTeste = userRepository.findByUsername(user.getUsername());
+    	if(!userTeste.isEmpty()) {
+    		return ResponseEntity.status(HttpStatus.CONFLICT).build();
+    	}
+    	else {
+    		user.setPassword(encoder.encode(user.getPassword()));
+            userRepository.save(user);
+            return ResponseEntity.ok(Map.of("message", "Usuário registrado com sucesso"));
+		}
+        
     }
 
     @PostMapping("/login")

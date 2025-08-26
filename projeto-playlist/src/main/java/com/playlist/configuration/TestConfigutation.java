@@ -41,8 +41,10 @@ public class TestConfigutation implements CommandLineRunner{
 		Musica m4 = new Musica(null, "Moves Like Jagger", "Maroon 5", "Pop Mundial", 2022, "Pop");
 		musicaRepository.saveAll(Arrays.asList(m1,m2,m3, m4));
 		
-		User user1 = new User(null, "user@gmail.com", encoder.encode("user123"), Set.of(Roles.ADMIN));
+		User user1 = new User(null, "user@gmail.com", encoder.encode("user123"), Set.of(Roles.USER));
+		User user2 = new User(null, "admin@gmail.com", encoder.encode("admin123"), Set.of(Roles.ADMIN));
 		userRepository.save(user1);
+		userRepository.save(user2);
 		
 	}
 

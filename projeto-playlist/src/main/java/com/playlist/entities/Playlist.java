@@ -15,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
@@ -36,12 +37,16 @@ public class Playlist implements Serializable{
 	private Long id;
 	@Column(unique = true)
 	private String nome;
+	@Column(nullable = false)
 	private String descricao;
 	
 	@ManyToMany
 	@JoinTable(name = "tb_playlist_music", joinColumns = @JoinColumn(name = "id_playlist"), inverseJoinColumns = @JoinColumn(name = "id_music"))
 	private Set<Musica> listMusicas = new HashSet<>();
 	
+	@ManyToOne
+	@JoinColumn(name = "id_user")
+	private User user;
 	
 	public Playlist(Long id, String nome, String descricao) {
 		this.id = id;
