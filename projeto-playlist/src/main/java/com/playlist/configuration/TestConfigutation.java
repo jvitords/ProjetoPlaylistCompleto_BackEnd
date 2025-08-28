@@ -41,9 +41,9 @@ public class TestConfigutation implements CommandLineRunner{
 		userRepository.save(user1);
 		userRepository.save(user2);
 		
-		Playlist p1 = new Playlist(null, "Funk RJ", "Playlist de Funk", user1);
+		Playlist p1 = new Playlist(null, "Funk", "Playlist de Funk", user1);
 		Playlist p2 = new Playlist(null, "Jorge e Matheus", "Playlist de Sertanejo", user1);
-		Playlist p3 = new Playlist(null, "Melhores do Pixote", "Playlist de Pagode", user1);
+		Playlist p3 = new Playlist(null, "Eletrônica", "Playlist de Eletrônica", user2);
 		playlistRepository.saveAll(Arrays.asList(p1,p2,p3));
 	}
 

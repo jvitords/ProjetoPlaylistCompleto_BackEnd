@@ -16,11 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.playlist.entities.Roles;
 import com.playlist.entities.User;
+import com.playlist.entities.dto.userDTO.UserDTO;
 import com.playlist.repository.UserRepository;
 import com.playlist.service.JwtService;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/auth")
@@ -37,14 +39,15 @@ public class AuthController {
     
     @PreAuthorize("hasAnyRole('ADMIN')") // só admin pode acessar essa opção
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody User user) {
-    	Optional<User> userTeste = userRepository.findByUsername(user.getUsername());
-    	if(!userTeste.isEmpty()) {
+    public ResponseEntity<?> register(@RequestBody UserDTO user) {
+    	Optional<User> userExistente = userRepository.findByUsername(user.username());
+    	if(!userExistente.isEmpty()) {
     		return ResponseEntity.status(HttpStatus.CONFLICT).build();
     	}
     	else {
-    		user.setPassword(encoder.encode(user.getPassword()));
-            userRepository.save(user);
+    		User saveUser = UserDTO.toEntity(user);
+    		saveUser.setPassword(encoder.encode("Redefina@01"));
+            userRepository.save(saveUser);
             return ResponseEntity.ok(Map.of("message", "Usuário registrado com sucesso"));
 		}
         
