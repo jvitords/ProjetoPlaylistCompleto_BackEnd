@@ -8,8 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,8 +22,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.playlist.entities.Roles;
 import com.playlist.entities.User;
 import com.playlist.entities.dto.userDTO.UserDTO;
+import com.playlist.entities.dto.userDTO.UserPutDTO;
 import com.playlist.repository.UserRepository;
 import com.playlist.service.JwtService;
+import com.playlist.service.exception.NotFoundException;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
@@ -39,13 +46,13 @@ public class AuthController {
     
     @PreAuthorize("hasAnyRole('ADMIN')") // só admin pode acessar essa opção
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody UserDTO user) {
-    	Optional<User> userExistente = userRepository.findByUsername(user.username());
+    public ResponseEntity<?> register(@RequestBody UserDTO userRequest) {
+    	Optional<User> userExistente = userRepository.findByUsername(userRequest.username());
     	if(!userExistente.isEmpty()) {
     		return ResponseEntity.status(HttpStatus.CONFLICT).build();
     	}
     	else {
-    		User saveUser = UserDTO.toEntity(user);
+    		User saveUser = UserDTO.toEntity(userRequest);
     		saveUser.setPassword(encoder.encode("Redefina@01"));
             userRepository.save(saveUser);
             return ResponseEntity.ok(Map.of("message", "Usuário registrado com sucesso"));
@@ -72,6 +79,19 @@ public class AuthController {
 
         return ResponseEntity.ok(Map.of("message", "Login bem-sucedido"));
     }
+    
+    @GetMapping("/me")
+    public ResponseEntity<?> me(@CookieValue(name = "jwt", required = false) String token) {
+        if (token == null || !jwtService.isTokenValid(token)) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Não autenticado");
+        }
+        String username = jwtService.extractUsername(token);
+
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+        return ResponseEntity.ok(Map.of("username", user.getUsername(), "roles" , user.getRoles()));
+    }
+
 
     @PostMapping("/logout")
     public ResponseEntity<?> logout(HttpServletResponse response) {
@@ -81,5 +101,15 @@ public class AuthController {
         cookie.setMaxAge(0); // expira imediatamente
         response.addCookie(cookie);
         return ResponseEntity.noContent().build();
+    }
+    
+    @PutMapping("/redefinir")
+    public ResponseEntity<?> atualizarSenha(@RequestBody UserPutDTO novaSenha, HttpServletResponse response){
+    	String username = SecurityContextHolder.getContext().getAuthentication().getName();
+    	User user = userRepository.findByUsername(username).orElseThrow(() -> new NotFoundException("O usuário que está tentando mudar de senha não existe."));
+    	user.setPassword(encoder.encode(novaSenha.getPassword()));
+    	userRepository.save(user);
+    	logout(response);
+    	return ResponseEntity.ok(Map.of("message", "Senha atualizada!"));
     }
 }

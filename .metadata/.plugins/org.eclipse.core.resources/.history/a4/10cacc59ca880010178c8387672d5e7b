@@ -1,0 +1,82 @@
+package com.playlist.controller;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import org.springframework.http.MediaType;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.web.servlet.MockMvc;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.playlist.entities.Playlist;
+import com.playlist.entities.dto.playlistDTO.PlaylistPostDTO;
+import com.playlist.service.PlaylistService;
+
+@WebMvcTest(PlaylistController.class)
+@AutoConfigureMockMvc(addFilters = false) 
+public class PlaylistControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @MockBean
+    private PlaylistService playlistService;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    private Playlist playlist;
+
+    @BeforeEach
+    void setup() {
+        playlist = new Playlist();
+        playlist.setId(1L);
+        playlist.setNome("Playlist teste");
+    }
+
+    @Test
+    void shouldReturnAllPlaylists() throws Exception {
+        when(playlistService.findAllPlaylist()).thenReturn(List.of(playlist));
+
+        mockMvc.perform(get("/lists"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$[0].nome").value("Playlist teste"));
+    }
+
+    @Test
+    void shouldReturnPlaylistByName() throws Exception {
+        when(playlistService.findByNome("Test Playlist")).thenReturn(playlist);
+
+        mockMvc.perform(get("/lists/Test Playlist"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.nome").value("Playlist teste"));
+    }
+
+    @Test
+    void shouldCreateNewPlaylist() throws Exception {
+        PlaylistPostDTO dto = new PlaylistPostDTO();
+        dto.setNome("New Playlist");
+        dto.setDescricao("Descrição da playlist");
+
+        when(playlistService.fromPlaylist(any())).thenReturn(playlist);
+
+        mockMvc.perform(post("/lists")
+                .with(csrf())  // caso use Spring Security
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(dto)))
+            .andExpect(status().isCreated())
+            .andExpect(jsonPath("$.nome").value("Playlist teste")); 
+    }
+}

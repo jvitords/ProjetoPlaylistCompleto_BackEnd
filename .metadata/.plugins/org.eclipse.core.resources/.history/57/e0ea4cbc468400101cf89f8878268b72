@@ -1,0 +1,8 @@
+package com.playlist.entities.dto.userDTO;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = false) // não aceita campos desconhecidos
+public record UserPutDTO(String password) {
+
+}

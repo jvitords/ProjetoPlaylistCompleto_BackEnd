@@ -6,4 +6,5 @@
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.playlist.repository.UserRepository"/>
     <fullyQualifiedTypeName name="com.playlist.entities.dto.musicaDTO.MusicaGetDTO"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
 </qualifiedTypeNameHistroy>

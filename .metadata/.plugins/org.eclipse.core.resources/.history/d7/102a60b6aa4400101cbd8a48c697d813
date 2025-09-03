@@ -1,5 +1,0 @@
-package com.playlist.entities.dto.musicaDTO;
-
-public class MusicaPostDto {
-
-}

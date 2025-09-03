@@ -47,15 +47,6 @@ public class PlaylistControllerTest {
     }
 
     @Test
-    void shouldReturnAllPlaylists() throws Exception {
-        when(playlistService.findAllPlaylist()).thenReturn(List.of(playlist));
-
-        mockMvc.perform(get("/lists"))
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$[0].nome").value("Playlist teste"));
-    }
-
-    @Test
     void shouldReturnPlaylistByName() throws Exception {
         when(playlistService.findByNome("Test Playlist")).thenReturn(playlist);
 

@@ -1,5 +1,0 @@
-package com.playlist.configuration.security;
-
-public class SecurityConfig {
-
-}

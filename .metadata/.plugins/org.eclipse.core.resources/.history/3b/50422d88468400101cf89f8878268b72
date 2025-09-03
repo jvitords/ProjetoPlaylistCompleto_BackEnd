@@ -1,0 +1,5 @@
+package com.playlist.entities.dto.userDTO;
+
+public record UserPutDTO() {
+
+}
