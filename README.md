@@ -43,11 +43,11 @@ Bem-vindo! Siga os passos abaixo para rodar a aplicação localmente.
 
 # 1. Clone o repositório
 
-git clone https://github.com/jvitords/ProvaPlaylistBackEnd.git
+git clone https://github.com/jvitords/ProjetoPlaylistCompleto_BackEnd.git
 
 # 2. Acesse a pasta do projeto
 
-cd ProvaPlaylistBackEnd
+cd projeto-playlist
 
 # 3. Execute a aplicação
 
